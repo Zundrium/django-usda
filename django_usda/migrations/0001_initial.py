@@ -134,7 +134,7 @@ class Migration(migrations.Migration):
             name='FoodLanguaLFactor',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('food', models.ForeignKey(db_column=b'NDB_No', to='django-usda.Food', help_text='5-digit NutrientDatabank number that uniquelyidentifies a food item. If this field is defined asnumeric, the leading zero will be lost. ')),
+                ('food', models.ForeignKey(db_column=b'NDB_No', to='django_usda.Food', help_text='5-digit NutrientDatabank number that uniquelyidentifies a food item. If this field is defined asnumeric, the leading zero will be lost. ')),
             ],
             options={
                 'verbose_name': 'Food LanguaL factor',
@@ -149,7 +149,7 @@ class Migration(migrations.Migration):
                 ('sequence', models.CharField(help_text=' Sequence number. Ifa given footnote applies tomore than one nutrient number, the same footnotenumber is used. As a result, this file cannot beindexed. ', max_length=4, verbose_name='Sequence', db_column=b'Footnt_No')),
                 ('type', models.CharField(help_text='Type of footnote:D = footnote adding information to the fooddescription;M = footnote adding information to measuredescription;N = footnote providing additional information on anutrient value. If the Footnt_typ = N, the Nutr_No willalso be filled in. ', max_length=1, verbose_name='Type', db_column=b'Footnt_Typ', choices=[(b'D', 'Footnote adding information to the food description'), (b'M', 'Footnote adding information to measure description'), (b'N', 'Footnote providing additional information on a nutrient value')])),
                 ('name', models.CharField(help_text='Footnote text.', max_length=200, verbose_name='Name', db_column=b'Footnt_Txt')),
-                ('food', models.ForeignKey(db_column=b'NDB_No', to='django-usda.Food', help_text='5-digit Nutrient Databank number.')),
+                ('food', models.ForeignKey(db_column=b'NDB_No', to='django_usda.Food', help_text='5-digit Nutrient Databank number.')),
             ],
             options={
                 'ordering': ['name'],
@@ -235,7 +235,7 @@ class Migration(migrations.Migration):
                 ('grams', models.DecimalField(help_text='Gram weight.', decimal_places=1, verbose_name='Grams', max_digits=8, db_column=b'Gm_Wgt')),
                 ('data_points', models.IntegerField(db_column=b'Num_Data_Pts', max_length=3, blank=True, help_text='Number of data points. ', null=True, verbose_name='Data points')),
                 ('standard_derivation', models.DecimalField(db_column=b'Std_Dev', decimal_places=3, max_digits=10, blank=True, null=True, verbose_name='Derivation (Standard)')),
-                ('food', models.ForeignKey(db_column=b'NDB_No', to='django-usda.Food', help_text='5-digit Nutrient Databank number.')),
+                ('food', models.ForeignKey(db_column=b'NDB_No', to='django_usda.Food', help_text='5-digit Nutrient Databank number.')),
             ],
             options={
                 'ordering': ['name'],
@@ -251,31 +251,31 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='nutrientdata',
             name='data_type',
-            field=models.ForeignKey(db_column=b'Src_Cd', to='django-usda.Source', help_text='Code indicating type of data.'),
+            field=models.ForeignKey(db_column=b'Src_Cd', to='django_usda.Source', help_text='Code indicating type of data.'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='nutrientdata',
             name='derivation',
-            field=models.ForeignKey(db_column=b'Deriv_Cd', blank=True, to='django-usda.Derivation', help_text='Data Derivation Code giving specific information on how the value is determined. This field is populated only for items added or updated starting with SR14.', null=True),
+            field=models.ForeignKey(db_column=b'Deriv_Cd', blank=True, to='django_usda.Derivation', help_text='Data Derivation Code giving specific information on how the value is determined. This field is populated only for items added or updated starting with SR14.', null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='nutrientdata',
             name='food',
-            field=models.ForeignKey(db_column=b'NDB_No', to='django-usda.Food', help_text='5-digit Nutrient Databank number.'),
+            field=models.ForeignKey(db_column=b'NDB_No', to='django_usda.Food', help_text='5-digit Nutrient Databank number.'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='nutrientdata',
             name='food_reference',
-            field=models.ForeignKey(related_name='food_reference_set', db_column=b'Ref_NDB_No', blank=True, to='django-usda.Food', help_text='NDB number of the item used tocalculate a missingvalue. Populated onlyfor items added or updatedstarting with SR14.', null=True),
+            field=models.ForeignKey(related_name='food_reference_set', db_column=b'Ref_NDB_No', blank=True, to='django_usda.Food', help_text='NDB number of the item used tocalculate a missingvalue. Populated onlyfor items added or updatedstarting with SR14.', null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='nutrientdata',
             name='nutrient',
-            field=models.ForeignKey(db_column=b'Nutr_No', to='django-usda.Nutrient', help_text='Unique 3-digit identifier code for a nutrient. '),
+            field=models.ForeignKey(db_column=b'Nutr_No', to='django_usda.Nutrient', help_text='Unique 3-digit identifier code for a nutrient. '),
             preserve_default=True,
         ),
         migrations.AlterUniqueTogether(
@@ -285,13 +285,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='footnote',
             name='nutrient',
-            field=models.ForeignKey(db_column=b'Nutr_No', blank=True, to='django-usda.Nutrient', help_text=' Unique 3-digit identifier code for a nutrient to which footnote applies. ', null=True),
+            field=models.ForeignKey(db_column=b'Nutr_No', blank=True, to='django_usda.Nutrient', help_text=' Unique 3-digit identifier code for a nutrient to which footnote applies. ', null=True),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='foodlangualfactor',
             name='langual_factor',
-            field=models.ForeignKey(db_column=b'Factor_Code', to='django-usda.LanguaLFactor', help_text='The LanguaL factor from the Thesaurus.'),
+            field=models.ForeignKey(db_column=b'Factor_Code', to='django_usda.LanguaLFactor', help_text='The LanguaL factor from the Thesaurus.'),
             preserve_default=True,
         ),
         migrations.AlterUniqueTogether(
@@ -301,25 +301,25 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='food',
             name='food_group',
-            field=models.ForeignKey(db_column=b'FdGrp_Cd', to='django-usda.FoodGroup', help_text='4-digit code indicating food group to which a food item belongs. '),
+            field=models.ForeignKey(db_column=b'FdGrp_Cd', to='django_usda.FoodGroup', help_text='4-digit code indicating food group to which a food item belongs. '),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='datalink',
             name='data_source',
-            field=models.ForeignKey(db_column=b'DataSrc_ID', to='django-usda.DataSource', help_text='Unique ID identifying the reference/source. '),
+            field=models.ForeignKey(db_column=b'DataSrc_ID', to='django_usda.DataSource', help_text='Unique ID identifying the reference/source. '),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='datalink',
             name='food',
-            field=models.ForeignKey(db_column=b'NDB_No', to='django-usda.Food', help_text='5-digit Nutrient Databank number.'),
+            field=models.ForeignKey(db_column=b'NDB_No', to='django_usda.Food', help_text='5-digit Nutrient Databank number.'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='datalink',
             name='nutrient',
-            field=models.ForeignKey(db_column=b'Nutr_No', to='django-usda.Nutrient', help_text='Unique 3-digit identifier code for a nutrient. '),
+            field=models.ForeignKey(db_column=b'Nutr_No', to='django_usda.Nutrient', help_text='Unique 3-digit identifier code for a nutrient. '),
             preserve_default=True,
         ),
         migrations.AlterUniqueTogether(

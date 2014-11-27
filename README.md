@@ -8,10 +8,10 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 - Django Rest Framework (2.4.4)
 
 ## Installation
-1. You can install Django-USDA with Python PIP:
+1. You can install Django USDA with Python PIP:
 
   ```
-   pip install git+https://github.com/zundrium/django-usda.git
+   pip install git+https://github.com/zundrium/django_usda.git
   ```
   
 2. Now you can add Django USDA to your `INSTALLED_APPS` in the `settings.py` of your project together with the required dependencies.
@@ -20,7 +20,7 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
    INSTALLED_APPS = (
     ...
     'rest_framework',
-    'django-usda',
+    'django_usda',
    )
   ```
 
@@ -41,7 +41,7 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 4. After that add the ViewSets that you want to use and the required url patterns to the `urls.py` of your project.
 
   ```python
-  from django-usda.modelviewsets import FoodViewSet, FoodGroupViewSet, FoodLanguaLFactorViewSet, LanguaLFactorViewSet, NutrientDataViewSet, NutrientViewSet, SourceViewSet, DerivationViewSet, WeightViewSet, FootnoteViewSet, DataLinkViewSet, DataSourceViewSet, FoodInfoViewSet
+  from django_usda.modelviewsets import FoodViewSet, FoodGroupViewSet, FoodLanguaLFactorViewSet, LanguaLFactorViewSet, NutrientDataViewSet, NutrientViewSet, SourceViewSet, DerivationViewSet, WeightViewSet, FootnoteViewSet, DataLinkViewSet, DataSourceViewSet, FoodInfoViewSet
   from django.contrib import admin
   
   router = routers.DefaultRouter()
