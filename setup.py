@@ -10,7 +10,6 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-usda',
     version='0.1',
-    packages=['django-usda'],
     include_package_data=True,
     license='MIT License',
     description='An easy to set up Django Rest Framework API that is compatible with the USDA Nutrient Database.',
