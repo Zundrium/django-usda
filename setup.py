@@ -20,11 +20,6 @@ setup(
     install_requires=[
         'djangorestframework',
     ],
-    packages=[
-        'django-usda',
-        'django-usda.management',
-        'django-usda.management.commands',
-    ],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -35,5 +30,10 @@ setup(
         'Programming Language :: Python :: 2',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+    ],
+    packages=[
+        'django-usda',
+        'django-usda.management',
+        'django-usda.management.commands',
     ],
 )
