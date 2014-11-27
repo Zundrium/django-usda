@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.db.models.loading import get_model
-from usda_nutrient_database.models import Food, FoodGroup, FoodLanguaLFactor, LanguaLFactor, NutrientData, Nutrient, Source, Derivation, Weight, Footnote, DataLink, DataSource, DeletedFood, DeletedNutrient, DeletedFootnote
+from django-usda.models import Food, FoodGroup, FoodLanguaLFactor, LanguaLFactor, NutrientData, Nutrient, Source, Derivation, Weight, Footnote, DataLink, DataSource, DeletedFood, DeletedNutrient, DeletedFootnote
 import zipfile
 import csv
 import json
@@ -8,7 +8,7 @@ import time
 from django.db import IntegrityError
 from django import db
 
-appLabel = "usda_nutrient_database"
+appLabel = "django-usda"
 
 modelMap = [
 	{"fileName" : "DATA_SRC.txt", 	"model" : DataSource},
