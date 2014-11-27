@@ -11,7 +11,7 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 1. You can install Django USDA with Python PIP:
 
   ```
-   pip install git+https://github.com/zundrium/django_usda.git
+   pip install git+https://github.com/zundrium/django-usda.git
   ```
   
 2. Now you can add Django USDA to your `INSTALLED_APPS` in the `settings.py` of your project together with the required dependencies.
