@@ -7,6 +7,10 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 - Django (1.4.11+, 1.5.5+, 1.6, 1.7)
 - Django Rest Framework (2.4.4)
 
+## Demo
+To quickly see what this package can do, go to the [Demo repository][2].
+
+
 ## Installation
 1. You can install Django USDA with Python PIP:
 
@@ -78,3 +82,4 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 9. That's it, now you can use the viewsets in your application! (Example: `http://localhost:8000/foodinfo/01001`).
  
 [1]: http://www.ars.usda.gov/Services/docs.htm?docid=24912
+[2]: https://github.com/Zundrium/django-usda-demo
