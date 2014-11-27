@@ -71,7 +71,7 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 
 6. [Download][1] the ASCII version of the 27th release of the USDA Nutrient Database.
 
-7. Run `python manage.py import_r27 <path_to_zipfile>`.
+7. Run `python manage.py import_r27 <path_to_zipfile>`. This can take up to 10 minutes.
 
 8. Start the development server (Normally `python manage.py runserver`).
 
