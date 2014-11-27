@@ -24,7 +24,21 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
    )
   ```
 
-3. After that add the ViewSets that you want to use and the required url patterns to the `urls.py` of your project.
+3. Add the following settings to the `settings.py` for Django Rest Framework to function properly.
+
+  ```python
+  REST_FRAMEWORK = {
+      'DEFAULT_PERMISSION_CLASSES': [
+          'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+      ],
+      'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',),
+      'PAGINATE_BY': 250,
+      'PAGINATE_BY_PARAM': 'page_size',
+      'MAX_PAGINATE_BY': 250
+  }
+  ```
+
+4. After that add the ViewSets that you want to use and the required url patterns to the `urls.py` of your project.
 
   ```python
   from django-usda.modelviewsets import FoodViewSet, FoodGroupViewSet, FoodLanguaLFactorViewSet, LanguaLFactorViewSet, NutrientDataViewSet, NutrientViewSet, SourceViewSet, DerivationViewSet, WeightViewSet, FootnoteViewSet, DataLinkViewSet, DataSourceViewSet, FoodInfoViewSet
@@ -53,12 +67,12 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
   )
   ```
 
-4. Run `python manage.py migrate` if you have South or Django 1.7 installed. Otherwise use `python manage.py syncdb`.
+5. Run `python manage.py migrate` if you have South or Django 1.7 installed. Otherwise use `python manage.py syncdb`.
 
-5. Download the ASCII version of the 27th release of the USDA Nutrient Database.
+6. Download the ASCII version of the 27th release of the USDA Nutrient Database.
 
-6. Run `python manage.py import_r27 <path_to_zipfile>`.
+7. Run `python manage.py import_r27 <path_to_zipfile>`.
 
-7. Start the development server (Normally `python manage.py runserver`).
+8. Start the development server (Normally `python manage.py runserver`).
 
-8. That's it, now you can use the viewsets in your application! (Example: `http://localhost:8000/foodinfo/01001`).
+9. That's it, now you can use the viewsets in your application! (Example: `http://localhost:8000/foodinfo/01001`).
