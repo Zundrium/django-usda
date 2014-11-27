@@ -69,10 +69,12 @@ An easy to set up Django Rest Framework API that is compatible with the USDA Nut
 
 5. Run `python manage.py migrate` if you have South or Django 1.7 installed. Otherwise use `python manage.py syncdb`.
 
-6. Download the ASCII version of the 27th release of the USDA Nutrient Database.
+6. [Download][1] the ASCII version of the 27th release of the USDA Nutrient Database.
 
 7. Run `python manage.py import_r27 <path_to_zipfile>`.
 
 8. Start the development server (Normally `python manage.py runserver`).
 
 9. That's it, now you can use the viewsets in your application! (Example: `http://localhost:8000/foodinfo/01001`).
+ 
+[1]: http://www.ars.usda.gov/Services/docs.htm?docid=24912
